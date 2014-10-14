@@ -4,6 +4,9 @@ namespace Nam\Realtime;
 
 /**
  * Class StreamManager
+ *
+ * @method publish($channel, $event, $message)
+ *
  * @package Nam\Realtime
  */
 class StreamManager
@@ -73,6 +76,21 @@ class StreamManager
         $this->connectors[$driver] = $resolver;
 
         return $this;
+    }
+
+    /**
+     * Dynamically pass calls to the default connection.
+     *
+     * @param  string $method
+     * @param  array  $parameters
+     *
+     * @return mixed
+     */
+    public function __call($method, $parameters)
+    {
+        $callable = [ $this->connection(), $method ];
+
+        return call_user_func_array($callable, $parameters);
     }
 
 }
