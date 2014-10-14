@@ -11,7 +11,7 @@ return [
         ],
         'pusher' => [
             'driver'   => 'pusher',
-            'auth_key' => '',
+            'auth' => '',
             'secret'   => '',
             'app_id'   => '',
         ],
