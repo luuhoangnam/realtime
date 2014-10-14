@@ -15,9 +15,11 @@ class StreamManagerTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $streamConfig = [
-            'default'            => 'pusher',
-            'connections.pusher' => [ 'driver' => 'pusher' ],
-            'connections.foo'    => [ 'driver' => 'bar' ],
+            'default'     => 'pusher',
+            'connections' => [
+                'pusher' => [ 'driver' => 'pusher' ],
+                'foo'    => [ 'driver' => 'bar' ]
+            ],
         ];
 
         $config = Mockery::mock('StdClass');
