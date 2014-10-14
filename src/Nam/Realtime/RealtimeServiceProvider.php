@@ -25,6 +25,7 @@ class RealtimeServiceProvider extends ServiceProvider
 
     private function registerManager()
     {
+        /** @noinspection PhpUndefinedMethodInspection */
         $this->app->bindShared('stream', function ($app) {
             // Once we have an instance of the queue manager, we will register the various
             // resolvers for the queue connectors. These connectors are responsible for
@@ -36,6 +37,7 @@ class RealtimeServiceProvider extends ServiceProvider
             return $manager;
         });
 
+        /** @noinspection PhpUndefinedMethodInspection */
         $this->app->bindShared('stream.connection', function ($app) {
             return $app['stream']->connection();
         });
