@@ -63,7 +63,7 @@ class StreamManager
 
     private function getConnectionConfig($name)
     {
-        return $this->config["connections.{$name}"];
+        return $this->config['connections'][$name];
     }
 
     private function getStreamConfig()
