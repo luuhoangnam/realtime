@@ -1,0 +1,27 @@
+{
+    "name": "nam/realtime",
+    "description": "Realtime technology driver for Laravel. Support Pubnub & Pusher",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luu Hoang Nam",
+            "email": "hoangnam0705@icloud.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "pubnub/pubnub": "~3.6",
+        "pusher/pusher-php-server": "~2.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.3",
+        "mockery/mockery": "~0.9",
+        "league/flysystem": "~0.5",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nam\\": "src/Nam/"
+        }
+    }
+}
