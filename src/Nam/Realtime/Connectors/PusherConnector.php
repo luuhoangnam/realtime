@@ -10,16 +10,6 @@ use Nam\Realtime\Drivers\Pusher;
 class PusherConnector implements ConnectorContract
 {
     /**
-     * @var \Pusher
-     */
-    private $pusher;
-
-    public function __construct(\Pusher $pusher)
-    {
-        $this->pusher = $pusher;
-    }
-
-    /**
      *
      * @param array $config
      *
@@ -27,6 +17,12 @@ class PusherConnector implements ConnectorContract
      */
     public function connect(array $config)
     {
-        return new Pusher($this->pusher);
+        $auth_key = $config['auth_key'];
+        $secret = $config['secret'];
+        $app_id = $config['app_id'];
+
+        $pusher = new \Pusher($auth_key, $secret, $app_id);
+
+        return new Pusher($pusher);
     }
 }

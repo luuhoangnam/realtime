@@ -9,20 +9,16 @@ use Pubnub\Pubnub;
 class PubnubConnector implements ConnectorContract
 {
     /**
-     * @var Pubnub
-     */
-    private $pubnub;
-
-    public function __construct(Pubnub $pubnub)
-    {
-        $this->pubnub = $pubnub;
-    }
-
-    /**
      * @return \Nam\Realtime\StreamContract
      */
     public function connect(array $config)
     {
-        return new PubnubDriver($this->pubnub);
+        $public_key = $config['public_key'];
+        $subscribe_key = $config['subscribe_key'];
+        $secret_key = $config['secret_key'];
+
+        $pubnub = new Pubnub($public_key, $subscribe_key, $secret_key);
+
+        return new PubnubDriver($pubnub);
     }
 }
