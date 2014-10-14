@@ -5,7 +5,7 @@ namespace Nam\Realtime;
 /**
  * Class StreamManager
  *
- * @method publish($channel, $event, $message)
+ * @method publish( $channel, $event, $message )
  *
  * @package Nam\Realtime
  */
