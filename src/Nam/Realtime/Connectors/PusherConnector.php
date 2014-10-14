@@ -17,11 +17,11 @@ class PusherConnector implements ConnectorContract
      */
     public function connect(array $config)
     {
-        $auth_key = $config['auth_key'];
+        $key = $config['key'];
         $secret = $config['secret'];
         $app_id = $config['app_id'];
 
-        $pusher = new \Pusher($auth_key, $secret, $app_id);
+        $pusher = new \Pusher($key, $secret, $app_id);
 
         return new Pusher($pusher);
     }
